@@ -1,5 +1,13 @@
+body{
+    overflow: hidden;
+    margin: 0;
+}
+
 .mainSection{
     display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+
 }
 
 .rightSection{
@@ -7,12 +15,12 @@
     align-items: center;
     justify-content: center;
     width: 70vw;
-    height: 100vh;
 }
 
 .leftSection{
     width: 30vw;
-    height: 100vh;
+    background-image: url("./images/bg-main-desktop.png");
+    background-size: cover;
 }
 
 .formSection{
@@ -32,10 +40,16 @@
 }
 
 .inputSection{
-    padding: 1.4vh;
+    padding: 1.5vh;
     border-radius: 10px;
     outline: none;
-    border: 1px solid black;
+    border: 1px solid hsl(270, 3%, 87%);
+}
+
+label{
+    color:hsl(278, 68%, 11%);
+    font-size: 1.5vh;
+    font-weight: 500;
 }
 
 .inRow{
@@ -61,4 +75,93 @@
     outline: none;
     border: 1px solid black;
 
+}
+
+input::-webkit-input-placeholder{
+    font-weight: 600;
+    color: hsl(270, 3%, 87%)
+}
+
+.btn{
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    font-weight: 500;
+}
+
+.cardFront{
+    width: 22vw;
+    height: 23vh;
+    border-radius: 10px;
+    background-image: url("./images/bg-card-front.png");
+    padding: 2rem;
+}
+
+.cardBack{
+    width: 22vw;
+    height: 23vh;
+    border-radius: 10px;
+    background-image: url("./images/bg-card-back.png");
+    position: relative;
+    left: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 2rem;
+}
+
+.cardSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+    position: relative;
+    left: 10rem;
+    top: 10rem;
+}
+
+.cardBack p{
+    color: white;
+    margin-right: 3vw;
+    letter-spacing: .1rem;
+}
+
+.profile{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+}
+
+.circle1{
+    border-radius: 100px;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+}
+
+.circle2{
+    border-radius: 100px;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid white;
+}
+
+.cardNumber h1{
+    color: white;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    margin-bottom: 0;
+}
+
+.cardDetails{
+    display: flex;
+    color: hsl(270, 3%, 87%);
+    width: 95%;
+    align-items: center;
+    justify-content:space-between;
+    font-size: 14px;
+    letter-spacing: .2rem;
 }
