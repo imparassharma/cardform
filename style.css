@@ -1,0 +1,203 @@
+body{
+    overflow: hidden;
+    margin: 0;
+}
+
+.mainSection{
+    display: flex;
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+
+}
+
+.rightSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+}
+
+.leftSection{
+    width: 30vw;
+    background-image: url("./images/bg-main-desktop.png");
+    background-size: cover;
+}
+
+.formSection{
+    width: 22vw;
+}
+
+#theForm{
+    display: flex;
+    flex-direction: column;
+}
+
+.row{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.inputSection{
+    padding: 1.7vh;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid hsl(270, 3%, 87%);
+}
+
+label{
+    color:hsl(278, 68%, 11%);
+    font-size: 1.5vh;
+    font-weight: 500;
+    letter-spacing: .1rem;
+}
+
+.inRow{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.inRow .inputSection{
+    width: 100%;
+}
+
+.row3{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1.5rem;
+}
+
+.btn{
+    padding: 1vw;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid black;
+
+}
+
+input::-webkit-input-placeholder{
+    font-size: 1rem;
+    font-weight: 600;
+    color: hsl(270, 3%, 87%)
+}
+
+.btn{
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cardFront{
+    width: 22vw;
+    height: 23vh;
+    border-radius: 10px;
+    background-image: url("./images/bg-card-front.png");
+    padding: 2rem;
+}
+
+.cardBack{
+    width: 22vw;
+    height: 23vh;
+    border-radius: 10px;
+    background-image: url("./images/bg-card-back.png");
+    position: relative;
+    left: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 2rem;
+}
+
+.cardSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+    position: relative;
+    left: 10rem;
+    top: 10rem;
+}
+
+.cardBack p{
+    color: white;
+    margin-right: 3vw;
+    letter-spacing: .1rem;
+}
+
+.profile{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 4rem;
+
+}
+
+.circle1{
+    border-radius: 100px;
+    width: 3rem;
+    height: 3rem;
+    background-color: white;
+}
+
+.circle2{
+    border-radius: 100px;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid white;
+}
+
+.cardNumber h1{
+    color: white;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    margin-bottom: 0;
+}
+
+.cardDetails{
+    display: flex;
+    color: hsl(270, 3%, 87%);
+    width: 95%;
+    align-items: center;
+    justify-content:space-between;
+    font-size: 14px;
+    letter-spacing: .2rem;
+}
+
+.rightSection p{
+    display: none;
+    margin: 0;
+    font-size: 12px;
+    margin-top: -.5rem;
+    color: rgb(234, 83, 83);
+}
+
+.hidden{
+    display: none !important;
+}
+
+.show{
+    display: flex !important;
+}
+
+.confirmed{
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.confirmed h3{
+    color: hsl(279, 6%, 55%);
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: -.5rem;
+    margin-bottom: 2rem;
+}
+#continue{
+    width: 100%;
+}
