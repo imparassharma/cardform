@@ -96,6 +96,7 @@ input::-webkit-input-placeholder{
     height: 23vh;
     border-radius: 10px;
     background-image: url("./images/bg-card-front.png");
+    background-repeat: no-repeat;
     padding: 2rem;
 }
 
@@ -104,6 +105,7 @@ input::-webkit-input-placeholder{
     height: 23vh;
     border-radius: 10px;
     background-image: url("./images/bg-card-back.png");
+    background-repeat: no-repeat;
     position: relative;
     left: 10rem;
     display: flex;
