@@ -22,7 +22,7 @@ function Main(){
             nameDiv.style.border = "1px solid red";
         }
         else{
-            nameDiv.style.border = "1px solid black";
+            nameDiv.style.border = "1px solid hsl(270, 3%, 87%)";
             blankName.style.display = "none";
         }
         updateName(event.target.value);
@@ -31,22 +31,36 @@ function Main(){
     const handleNumber = (event) =>{
         const numberDiv = document.getElementById("cardNumber");
         const blankNumber = document.getElementById("blankNumber");
+        const alphabeticRegex = /[A-Za-z]/; 
         if(event.target.value ==""){
             blankNumber.style.display = "block";
             numberDiv.style.border = "1px solid red";
         }
         else{
             blankNumber.style.display = "none";
-            let slicedNumber = event.target.value.replace(" ","");
+            let slicedNumber = event.target.value.replace(/ /g, "").replace(/,/g, "");
+            const nlength = slicedNumber.length;
             slicedNumber = slicedNumber.match(/.{1,4}/g);
-    
-            if(slicedNumber.toString().replace(/,/g,"").length==12){
-                flagNumber(true);
-                updateNumber(slicedNumber);
-                numberDiv.style.border = "1px solid black";
-            }
-            else{
+            console.log(alphabeticRegex.test(slicedNumber));
+            if(alphabeticRegex.test(slicedNumber)){
                 numberDiv.style.border = "1px solid red";
+                blankNumber.innerHTML = "Wrong format, numbers only";
+                blankNumber.style.display = "block";
+            }
+            else
+            {
+                if(nlength==12){
+                    console.log("here");
+                    flagNumber(true);
+                    updateNumber(slicedNumber);
+                    numberDiv.style.border = "1px solid hsl(270, 3%, 87%)";
+                    blankNumber.style.display = "none";
+                }
+                else{
+                    numberDiv.style.border = "1px solid red";
+                    blankNumber.innerHTML = "Wrong format";
+                    blankNumber.style.display = "block";
+                }
             }
         }
 
@@ -54,19 +68,23 @@ function Main(){
     const handleMonth = (event) =>{
         const monthDiv = document.getElementById("month");
         const blankExp = document.getElementById("blankExp");
+
         if(event.target.value ==""){
             blankExp.style.display = "block";
             monthDiv.style.border = "1px solid red";
         }
         else{
             blankExp.style.display = "none";
-            if(event.target.value>0 && event.target.value<13){
+            if(event.target.value>0 && event.target.value<13){     
                 flagMonth(true);
                 updateMonth(event.target.value);
-                monthDiv.style.border = "1px solid black";
+                monthDiv.style.border = "1px solid hsl(270, 3%, 87%)";
+                blankExp.style.display="none";
             }
             else{
                 monthDiv.style.border = "1px solid red";
+                blankExp.innerHTML = "Wrong format";
+                blankExp.style.display="block";
             }
         }
       
@@ -85,10 +103,13 @@ function Main(){
             if(event.target.value>0 && event.target.value<100){
                 flagYear(true);
                 updateYear(event.target.value);
-                yearDiv.style.border = "1px solid black";
+                yearDiv.style.border = "1px solid hsl(270, 3%, 87%)";
+                blankExp.style.display="none";
             }
             else{
                 yearDiv.style.border = "1px solid red";
+                blankExp.innerHTML = "Wrong format";
+                blankExp.style.display="block";
             }
         }
 
@@ -107,10 +128,13 @@ function Main(){
             if(event.target.value>99 && event.target.value<1000){
                 flagCvv(true);
                 updateCvv(event.target.value);
-                cvvDiv.style.border = "1px solid black";
+                cvvDiv.style.border = "1px solid hsl(270, 3%, 87%)";
+                blankCvv.style.display = "none";
             }
             else{
                 cvvDiv.style.border = "1px solid red";
+                blankCvv.innerHTML = "Wrong format";
+                blankCvv.style.display = "block";
             }
         }
 
@@ -127,11 +151,19 @@ function Main(){
         console.log(isMonth);
         console.log(isYear);
         console.log(isCvv);
+
         if(isNumber==true && isMonth==true && isYear==true && isCvv==true){
             cardNumber.innerHTML = number.toString().replace(/,/g," ");
             cardName.innerHTML = name;
             expiry.innerHTML = month +"/"+year;
             cardCvv.innerHTML = cvv;
+
+            const theForm = document.getElementById("theForm");
+            const confirmed = document.getElementById("confirmed");
+
+            theForm.classList.add("hidden");
+            confirmed.classList.remove("hidden");
+            confirmed.classList.add("show");
         }
         else{
             cardName.innerHTML = "somethingWrong";
@@ -190,7 +222,13 @@ function Main(){
                             </div>
                             <button className="btn" id="confirm_btn" onClick={handleConfirm}>Confirm</button>
                         </form>
-                    </div>
+                        <div className="confirmed hidden" id="confirmed">
+                            <svg width="80" height="80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="40" fill="url(#a)"/><path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3"/><defs><linearGradient id="a" x1="-23.014" y1="11.507" x2="0" y2="91.507" gradientUnits="userSpaceOnUse"><stop stop-color="#6348FE"/><stop offset="1" stop-color="#610595"/></linearGradient></defs></svg>
+                            <h1>THANK YOU!</h1>
+                            <h3>We have added your card details</h3>
+                            <button className="btn" id="continue">Continue</button>
+                        </div>
+                    </div> 
                 </div>
             </div>
     );
